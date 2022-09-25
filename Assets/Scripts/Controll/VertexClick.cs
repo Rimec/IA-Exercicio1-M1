@@ -12,6 +12,8 @@ public class VertexClick : MonoBehaviour
     private void OnMouseDown() {
         if (!GameManager.instance.GetHasObjectiveVertex)
         {
+            if (GameManager.instance.GetVertexSelected != null)
+                GameManager.instance.GetVertexSelected.GetComponent<Renderer>().material = GameManager.instance.GetVertexSelected.GetComponent<VertexClick>().GetDefaultMaterial;
             GameManager.instance.SetVertexSelected(this.gameObject);
             this.gameObject.GetComponent<Renderer>().material = vertexSelected;
         }

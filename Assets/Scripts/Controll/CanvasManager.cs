@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class CanvasManager : MonoBehaviour
 {
-    [SerializeField] private Button connectionVertexBtn, objectiveVertexBtn;
+    [SerializeField] private Button connectionVertexBtn, objectiveVertexBtn, playBtn;
+    [SerializeField] private GameObject player;
 
     private void Awake() {
         AssingButtons();
@@ -13,6 +14,7 @@ public class CanvasManager : MonoBehaviour
     private void AssingButtons(){
         connectionVertexBtn.onClick.AddListener(ConnectionVertexClick);
         objectiveVertexBtn.onClick.AddListener(ObjectiveVertexClick);
+        playBtn.onClick.AddListener(PlayClick);
     }
     private void ConnectionVertexClick(){
         GameManager.instance.SetVertexType(GameManager.VertexType.Connection);
@@ -20,8 +22,15 @@ public class CanvasManager : MonoBehaviour
     private void ObjectiveVertexClick(){
         GameManager.instance.SetVertexType(GameManager.VertexType.Objective);
     }
+    private void PlayClick(){
+        Instantiate(player, GameManager.instance.GetInitialVertex.transform.position, Quaternion.identity);
+        SetPlayButtonInteractable(false);
+    }
     public void SetActiveButtons(bool value){
         connectionVertexBtn.interactable = value;
         objectiveVertexBtn.interactable = value;
+    }
+    public void SetPlayButtonInteractable(bool value){
+        playBtn.interactable = value;
     }
 }

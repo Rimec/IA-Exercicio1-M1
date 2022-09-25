@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public enum VertexType{Initial, Connection, Objective}
     [SerializeField] private VertexType vertexType = VertexType.Initial;
-    [SerializeField] private GameObject vertexSelected = null;
+    [SerializeField] private GameObject vertexSelected = null, initialVertex = null;
     [SerializeField] private bool hasInitialVertex = false;
     [SerializeField] private bool hasObjectiveVertex = false;
     private void Awake(){
@@ -39,5 +39,9 @@ public class GameManager : MonoBehaviour
     public bool GetHasObjectiveVertex => hasObjectiveVertex;
     public void SetHasObjectiveVertex(bool value){
         hasObjectiveVertex = value;
+    }
+    public GameObject GetInitialVertex => initialVertex;
+    public void SetInitialVertex(GameObject _initialVertex){
+        initialVertex = _initialVertex;
     }
 }
