@@ -16,7 +16,6 @@ public class FollowWaypoints : MonoBehaviour {
     private GameObject wpManager;
 
     void Start() {
-        // Time.timeScale = 5.0f;
         wpManager = GameObject.Find("WaypointManager");
         wps = wpManager.GetComponent<WPManager>().waypoints;
         g = wpManager.GetComponent<WPManager>().graph;
@@ -24,30 +23,6 @@ public class FollowWaypoints : MonoBehaviour {
 
         Invoke("GotoObjective", 2.0f);
     }
-
-    // public void GotoHeli() {
-
-    //     g.AStar(currentNode, wps[0]);
-    //     currentWP = 0;
-    // }
-
-    // public void GotoRuin() {
-
-    //     g.AStar(currentNode, wps[wps.Count]);
-    //     currentWP = 0;
-    // }
-
-    // public void GotoRock() {
-
-    //     g.AStar(currentNode, wps[1]);
-    //     currentWP = 0;
-    // }
-
-    // public void GotoFactory() {
-
-    //     g.AStar(currentNode, wps[4]);
-    //     currentWP = 0;
-    // }
     public void GotoObjective() {
         g.AStar(currentNode, wps[wps.Count-1]);
         currentWP = 0;

@@ -26,11 +26,9 @@ public class InputCreateVertex : MonoBehaviour
                             wPManager.AddLink(waypoint, newVertexConnection);
                         }
                         wPManager.AddWaypoint(newVertexConnection);
-                        // wPManager.AddLink(GameManager.instance.GetVertexSelected, newVertexConnection);
                         waypointsNum++;
                     break;
                     case GameManager.VertexType.Objective:
-                        // Instantiate(vertexObjective, hit.point,Quaternion.identity);
                         GameObject newVertexObjective = Instantiate<GameObject>(vertexObjective, hit.point,Quaternion.identity);
                         foreach (var waypoint in wPManager.GetWaypoints)
                         {
@@ -40,7 +38,6 @@ public class InputCreateVertex : MonoBehaviour
                             }
                         }
                         wPManager.AddWaypoint(newVertexObjective);
-                        // wPManager.AddLink(GameManager.instance.GetVertexSelected, newVertexObjective);
                         GameManager.instance.SetHasObjectiveVertex(true);
                         canvasManager.SetActiveButtons(false);
                         canvasManager.SetPlayButtonInteractable(true);
