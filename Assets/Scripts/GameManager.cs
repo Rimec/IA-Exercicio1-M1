@@ -11,15 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private bool hasInitialVertex = false;
     [SerializeField] private bool hasObjectiveVertex = false;
     private void Awake(){
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
-        DontDestroyOnLoad(this.gameObject);
+        instance = this;
     }
     private void Start() {
         vertexType = VertexType.Initial;
